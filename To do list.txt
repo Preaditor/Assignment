@@ -1,0 +1,33 @@
+Finish questions / answers
+	
+Setup help, corerct answer & incorrect answer
+	q1 The processor is also known as?
+	q2 RAM stands for?
+	q3 True or false AMD CPUs work with Intel motherboards?
+	q4 True or false a microphone is an input device
+	q5 Which is the fastest drive type?
+
+	
+	setup help
+ 	g1 A Setup correct answer & incorrect
+ 	g2 A Setup correct answer & incorrect
+ 	g3 B Setup correct answer & incorrect
+ 	g4 B Setup correct answer & incorrect
+ 	g5 B Setup correct answer & incorrect
+
+
+
+ o1 Setup correct answer & incorrect
+ o2 Setup correct answer & incorrect 
+ o3 Setup correct answer & incorrect 
+ o4 Setup correct answer & incorrect 
+ o5 Setup correct answer & incorrect 
+ 
+ m1 Setup correct answer & incorrect 
+ m2 Setup correct answer & incorrect 
+ m3 Setup correct answer & incorrect 
+ m4 Setup correct answer & incorrect 
+ m5 Setup correct answer & incorrect 
+
+setup calculator io
+setup recording of results in db
