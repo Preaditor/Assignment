@@ -48,9 +48,10 @@ public class Help1 extends javax.swing.JFrame {
             }
         });
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("80 + 80 = 160\n9 + 4 = 13\nadd the two numbers");
+        jTextArea1.setText("The processor is central to\nall other components\n");
         jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -77,7 +78,7 @@ public class Help1 extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(101, 101, 101)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(101, Short.MAX_VALUE)))
+                    .addContainerGap(118, Short.MAX_VALUE)))
         );
 
         pack();

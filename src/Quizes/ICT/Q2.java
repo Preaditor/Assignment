@@ -1,5 +1,6 @@
 
 import Quizes.ICT.Help1;
+import Quizes.ICT.Help2;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -73,15 +74,15 @@ public class Q2 extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("jLabel3");
+        jLabel3.setText("Random Access Memory");
 
-        jLabel4.setText("jLabel4");
+        jLabel4.setText("Random Algorithm Maths");
 
-        jLabel5.setText("jLabel5");
+        jLabel5.setText("Right Access Memory");
 
         jLabel1.setText("RAM stands for?");
 
-        jLabel2.setText("jLabel2");
+        jLabel2.setText("Read Only Memory");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,7 +100,7 @@ public class Q2 extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                                 .addComponent(jButton3))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
@@ -161,7 +162,7 @@ public class Q2 extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        Help1 it= new Help1();
+        Help2 it= new Help2();
         it.setVisible(true);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
     }//GEN-LAST:event_jButton8ActionPerformed

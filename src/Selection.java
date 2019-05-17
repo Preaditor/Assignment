@@ -6,7 +6,6 @@ import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -17,17 +16,24 @@ import java.sql.SQLException;
  *
  * @author adam
  */
+
 public class Selection extends javax.swing.JFrame {
 
     /**
      * Creates new form Selection
      */
+
     public Selection() {
+        String uname = "";
         initComponents();
                 getContentPane().setBackground(Color.CYAN);
-            jTextField1.setText("Welcome: "   );
+            jTextField1.setText("Welcome: " + uname   );
                     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+    }
+
+    Selection(String name) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
         private Connection connect(){
                 Connection conn = null;
@@ -85,6 +91,8 @@ public class Selection extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+
+        jTextField1.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

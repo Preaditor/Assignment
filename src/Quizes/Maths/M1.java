@@ -100,6 +100,8 @@ public class M1 extends javax.swing.JFrame {
 
         jLabel5.setText("Question 1: 89 + 84 equals what?");
 
+        jTextField1.setEditable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(

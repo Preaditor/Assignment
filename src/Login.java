@@ -18,11 +18,13 @@ import java.util.logging.Logger;
  *
  * @author adam
  */
+
 public class Login extends javax.swing.JFrame {
 
     /**
      * Creates new form Login
      */
+
     public Login() {
         initComponents();
         getContentPane().setBackground(Color.CYAN);
@@ -186,8 +188,6 @@ public class Login extends javax.swing.JFrame {
             // loop through the result set
             while (rs.next()) {
                 if (user.equals(rs.getString("user")) && pass.equals(rs.getString("pass")) ){
-                    String name = rs.getString("Name");
-                    
                     Selection  se= new Selection();
                         se.setVisible(true);
                         this.setVisible(false);
@@ -226,7 +226,7 @@ public class Login extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

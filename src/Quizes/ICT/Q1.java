@@ -77,11 +77,11 @@ public class Q1 extends javax.swing.JFrame {
 
         jLabel2.setText("CPU");
 
-        jLabel3.setText("jLabel3");
+        jLabel3.setText("The calculator of the computer");
 
-        jLabel4.setText("THe brain of the computer");
+        jLabel4.setText("The brain of the computer");
 
-        jLabel5.setText("jLabel5");
+        jLabel5.setText("GPU");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

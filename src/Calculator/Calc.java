@@ -249,8 +249,6 @@ public class Calc extends javax.swing.JFrame {
 
         jButton16.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton16.setText("/");
-        jButton16.setMaximumSize(new java.awt.Dimension(41, 25));
-        jButton16.setMinimumSize(new java.awt.Dimension(41, 25));
         jButton16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton16ActionPerformed(evt);
@@ -301,6 +299,11 @@ public class Calc extends javax.swing.JFrame {
         });
 
         jButton23.setText("±");
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
 
         jButton24.setText("xⁿ");
         jButton24.addActionListener(new java.awt.event.ActionListener() {
@@ -421,17 +424,14 @@ public class Calc extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton22)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton29))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton21)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(6, 6, 6)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton29))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
@@ -504,7 +504,7 @@ public class Calc extends javax.swing.JFrame {
                             .addComponent(jButton10)
                             .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton12)
-                            .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton16)
                             .addComponent(jButton23)
                             .addComponent(jButton31))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -643,6 +643,7 @@ public class Calc extends javax.swing.JFrame {
             String sans;
             sans = String.valueOf(ans);
             jTextField1.setText(sans);
+            ps = 0;
         }
         else if (mt == 1){
             String sp2 = jTextField1.getText();
@@ -656,6 +657,7 @@ public class Calc extends javax.swing.JFrame {
             String sans;
             sans = String.valueOf(ans);
             jTextField1.setText(sans);
+            mt  = 0;
         }
         else if (sb == 1){
             String sp2 = jTextField1.getText();
@@ -669,6 +671,7 @@ public class Calc extends javax.swing.JFrame {
             String sans;
             sans = String.valueOf(ans);
             jTextField1.setText(sans);
+            sb  = 0;
         }
         else if (dv == 1){
             String sp2 = jTextField1.getText();
@@ -682,6 +685,7 @@ public class Calc extends javax.swing.JFrame {
             String sans;
             sans = String.valueOf(ans);
             jTextField1.setText(sans);   
+            dv  = 0;
         }
         else if (pn == 1){
             String sp2 = jTextField1.getText();
@@ -695,6 +699,7 @@ public class Calc extends javax.swing.JFrame {
             String sans;
             sans = String.valueOf(ans);
             jTextField1.setText(sans);   
+            pn  = 0;
         }
         
 
@@ -810,6 +815,25 @@ public class Calc extends javax.swing.JFrame {
         // TODO add your handling code here:
         jTextField1.setText("3.1415926535897932384626433832795");
     }//GEN-LAST:event_jButton31ActionPerformed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        // negative / positive
+        String sp2 = jTextField1.getText();        
+        float p2; 
+        p2 = Float.valueOf(sp2);
+        if (p2 > 0){
+            p2 = -p2;
+            String sans;
+            sans = String.valueOf(p2);
+            jTextField1.setText(sans);
+        }
+        else if (p2 < 0){
+        double ans = java.lang.Math.abs(p2);
+        String sans;
+        sans = String.valueOf(ans);
+        jTextField1.setText(sans); 
+        }
+    }//GEN-LAST:event_jButton23ActionPerformed
 
     /**
      * @param args the command line arguments

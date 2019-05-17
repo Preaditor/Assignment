@@ -1,5 +1,6 @@
 
 import Quizes.ICT.Help1;
+import Quizes.ICT.Help5;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -72,15 +73,15 @@ public class Q5 extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("jLabel3");
+        jLabel3.setText("SSHD");
 
-        jLabel4.setText("jLabel4");
+        jLabel4.setText("SSD");
 
-        jLabel5.setText("jLabel5");
+        jLabel5.setText("Nvme SSD");
 
         jLabel1.setText("Which is the fastest drive type?");
 
-        jLabel2.setText("jLabel2");
+        jLabel2.setText("Hard Drive");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -155,7 +156,7 @@ public class Q5 extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        Help1 it= new Help1();
+        Help5 it= new Help5();
         it.setVisible(true);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
     }//GEN-LAST:event_jButton8ActionPerformed
