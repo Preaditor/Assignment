@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -23,8 +24,10 @@ public class Selection extends javax.swing.JFrame {
      * Creates new form Selection
      */
 
-    public Selection() {
+
+    public Selection(Passing data){
         String uname = "";
+        uname = data.name;
         initComponents();
                 getContentPane().setBackground(Color.CYAN);
             jTextField1.setText("Welcome: " + uname   );
@@ -192,7 +195,7 @@ public class Selection extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Selection().setVisible(true);
+                new Selection(Passing data).setVisible(true);
             }
         });
     }
