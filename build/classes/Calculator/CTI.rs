@@ -1,6 +1,0 @@
-CTI$3
-CTI$2
-CTI$1
-CTI
-CTI$5
-CTI$4

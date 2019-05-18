@@ -1,6 +1,0 @@
-CTF$5
-CTF$4
-CTF$3
-CTF$2
-CTF
-CTF$1

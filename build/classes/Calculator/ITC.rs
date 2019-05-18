@@ -1,6 +1,0 @@
-ITC$5
-ITC$4
-ITC
-ITC$3
-ITC$2
-ITC$1
