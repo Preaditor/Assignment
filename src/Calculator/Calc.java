@@ -1,3 +1,4 @@
+package Calculator;
 import Data.AppData;
 import Main.Selection;
 import java.awt.Color;
@@ -869,7 +870,7 @@ public class Calc extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Calc(appData).setVisible(true);
+                new Calculator.Calc(appData).setVisible(true);
             }
         });
     }

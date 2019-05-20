@@ -1,3 +1,5 @@
+package Converters;
+import Data.AppData;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -20,7 +22,9 @@ public class Calcopt extends javax.swing.JFrame {
     /**
      * Creates new form Calcopt
      */
-    public Calcopt() {
+    private final AppData appData;
+    public Calcopt(AppData appData) {
+        this.appData = appData;
         initComponents();
         getContentPane().setBackground(Color.CYAN);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -121,7 +125,7 @@ public class Calcopt extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Calc ca= new Calc();
+        Calculator.Calc ca= new Calculator.Calc(appData);
             ca.setVisible(true);
             this.setVisible(false);
             this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -185,11 +189,11 @@ public class Calcopt extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Calcopt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        AppData appData = new AppData("some test string", 1, 1, 1, 1);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Calcopt().setVisible(true);
+                new Converters.Calcopt(appData).setVisible(true);
             }
         });
     }
