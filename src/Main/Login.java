@@ -213,7 +213,7 @@ public class Login extends javax.swing.JFrame {
         
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        Signup su= new Signup();
+        Signup su= new Signup(appData);
             su.setVisible(true);
             this.setVisible(false);
             this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -222,7 +222,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Help hp= new Help();
+        Help hp= new Help(appData);
             hp.setVisible(true);
             this.setVisible(true);
             this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);

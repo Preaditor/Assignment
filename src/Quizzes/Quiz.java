@@ -1,3 +1,4 @@
+package Quizzes;
 import Data.AppData;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -137,7 +138,7 @@ public class Quiz extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        Selection se= new Selection();
+        Main.Selection se= new Main.Selection(appData);
             se.setVisible(true);
             this.setVisible(false);
             this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);

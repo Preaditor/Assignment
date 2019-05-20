@@ -1,4 +1,5 @@
-
+package Converters;
+import Data.AppData;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -18,7 +19,9 @@ public class CTF extends javax.swing.JFrame {
     /**
      * Creates new form CTF
      */
-    public CTF() {
+    private final AppData appData;
+    public CTF(AppData appData) {
+        this.appData = appData;
         initComponents();
         getContentPane().setBackground(Color.CYAN);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -142,7 +145,7 @@ public class CTF extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Tempselection ca= new Tempselection();
+        Tempselection ca= new Tempselection(appData);
             ca.setVisible(true);
             this.setVisible(false);
             this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -177,9 +180,10 @@ public class CTF extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        AppData appData = new AppData("some test string", 1, 1, 1, 1);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CTF().setVisible(true);
+                new CTF(appData).setVisible(true);
             }
         });
     }

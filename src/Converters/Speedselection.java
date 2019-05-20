@@ -1,4 +1,5 @@
-
+package Converters;
+import Data.AppData;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -19,7 +20,9 @@ public class Speedselection extends javax.swing.JFrame {
     /**
      * Creates new form Speedselection
      */
-    public Speedselection() {
+    private final AppData appData;
+    public Speedselection(AppData appData) {
+        this.appData = appData;
         initComponents();
         getContentPane().setBackground(Color.CYAN);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -68,7 +71,7 @@ public class Speedselection extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Calcopt ca= new Calcopt();
+        Calcopt ca= new Calcopt(appData);
         ca.setVisible(true);
         this.setVisible(false);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -103,9 +106,10 @@ public class Speedselection extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        AppData appData = new AppData("some test string", 1, 1, 1, 1);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Speedselection().setVisible(true);
+                new Speedselection(appData).setVisible(true);
             }
         });
     }

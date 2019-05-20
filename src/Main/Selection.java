@@ -145,7 +145,7 @@ public class Selection extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Quiz qu= new Quiz(appData);
+        Quizzes.Quiz qu= new Quizzes.Quiz(appData);
             qu.setVisible(true);
             this.setVisible(false);
             this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
