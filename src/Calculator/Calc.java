@@ -518,7 +518,7 @@ public class Calc extends javax.swing.JFrame {
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         // options
-        Calcopt opt= new Calcopt();
+        Converters.Calcopt opt= new Converters.Calcopt(appData);
             opt.setVisible(true);
             this.setVisible(false);
             this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);

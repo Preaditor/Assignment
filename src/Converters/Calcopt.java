@@ -134,7 +134,7 @@ public class Calcopt extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        Lengthselection ls = new Lengthselection();
+        Lengthselection ls = new Lengthselection(appData);
             ls.setVisible(true);
             this.setVisible(false);
             this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -143,7 +143,7 @@ public class Calcopt extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        Tempselection ls = new Tempselection();
+        Tempselection ls = new Tempselection(appData);
             ls.setVisible(true);
             this.setVisible(false);
             this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -152,7 +152,7 @@ public class Calcopt extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        Speedselection ls = new Speedselection();
+        Speedselection ls = new Speedselection(appData);
             ls.setVisible(true);
             this.setVisible(false);
             this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
