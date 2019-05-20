@@ -16,17 +16,26 @@ public class AppData {
     // is = ICT score
     // os = odd one out score
     
-    private String uname;
-    private int ms;
-    private int gs;
-    private int is;
-    private int os;
+    public String username;
+    public int ms;
+    public int gs;
+    public int is;
+    public int os;
     
-    public AppData(String uname, int os, int ms, int gs, int is){
-            this.uname = uname;
+    public AppData(String username, int os, int ms, int gs, int is){
+            this.username = username;
             this.os = os;
             this.ms = ms;
             this.gs = gs;
             this.is = is;   
     }
+    public String getusername() {
+        return username;
+    }
+    public void setusername(String username) { 
+        this.username = username;
+    }
+
+    
+    
 }

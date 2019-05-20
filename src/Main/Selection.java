@@ -26,10 +26,10 @@ public class Selection extends javax.swing.JFrame {
 
     public Selection(AppData appData) {
         this.appData = appData;
-        String uname = "";
+        String name = appData.username;
         initComponents();
                 getContentPane().setBackground(Color.CYAN);
-            jTextField1.setText("Welcome: "    );
+            jTextField1.setText("Welcome: " + name   );
                     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
@@ -192,7 +192,7 @@ public class Selection extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Selection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        AppData appData = new AppData("some test string", 1, 1, 1, 1);
+        AppData appData = new AppData("name", 0, 0, 0, 0);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
