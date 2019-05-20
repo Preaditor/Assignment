@@ -1,4 +1,4 @@
-
+import Data.AppData;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -18,7 +18,9 @@ public class Quiz extends javax.swing.JFrame {
     /**
      * Creates new form Quiz
      */
-    public Quiz() {
+    private final AppData appData;
+    public Quiz(AppData appData) {
+        this.appData = appData;
         initComponents();
                         getContentPane().setBackground(Color.CYAN);
                                 Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -126,7 +128,7 @@ public class Quiz extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        ICT it= new ICT();
+        ICT it= new ICT(appData);
             it.setVisible(true);
             this.setVisible(false);
             this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -144,7 +146,7 @@ public class Quiz extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Maths ma= new Maths();
+        Maths ma= new Maths(appData);
             ma.setVisible(true);
             this.setVisible(false);
             this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -153,7 +155,7 @@ public class Quiz extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // Odd
-        ooo odd= new ooo();
+        ooo odd= new ooo(appData);
             odd.setVisible(true);
             this.setVisible(false);
             this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -162,7 +164,7 @@ public class Quiz extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // Geo
-        Geo g= new Geo();
+        Geo g= new Geo(appData);
             g.setVisible(true);
             this.setVisible(false);
             this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -195,11 +197,11 @@ public class Quiz extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Quiz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        AppData appData = new AppData("some test string", 1, 1, 1, 1);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Quiz().setVisible(true);
+                new Quiz(appData).setVisible(true);
             }
         });
     }

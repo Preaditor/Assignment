@@ -1,5 +1,5 @@
-
-
+package Main;
+import Data.AppData;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -22,12 +22,14 @@ public class Selection extends javax.swing.JFrame {
     /**
      * Creates new form Selection
      */
+    private final AppData appData;
 
-    public Selection() {
+    public Selection(AppData appData) {
+        this.appData = appData;
         String uname = "";
         initComponents();
                 getContentPane().setBackground(Color.CYAN);
-            jTextField1.setText("Welcome: " + uname   );
+            jTextField1.setText("Welcome: "    );
                     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
@@ -35,6 +37,8 @@ public class Selection extends javax.swing.JFrame {
     Selection(String name) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
         private Connection connect(){
                 Connection conn = null;
         try {
@@ -141,7 +145,7 @@ public class Selection extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Quiz qu= new Quiz();
+        Quiz qu= new Quiz(appData);
             qu.setVisible(true);
             this.setVisible(false);
             this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -150,7 +154,7 @@ public class Selection extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Calc ca= new Calc();
+        Calc ca= new Calc(appData);
             ca.setVisible(true);
             this.setVisible(false);
             this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -188,11 +192,11 @@ public class Selection extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Selection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        AppData appData = new AppData("some test string", 1, 1, 1, 1);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Selection().setVisible(true);
+                new Selection(appData).setVisible(true);
             }
         });
     }

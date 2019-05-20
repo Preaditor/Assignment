@@ -1,4 +1,5 @@
-
+import Data.AppData;
+import Main.Selection;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -56,9 +57,10 @@ public class Calc extends javax.swing.JFrame {
         STO = 0;
     }
 
+    private final AppData appData;
 
-
-    public Calc() {
+    public Calc(AppData appData) {
+        this.appData = appData;
         initComponents();
         getContentPane().setBackground(Color.CYAN);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -524,7 +526,7 @@ public class Calc extends javax.swing.JFrame {
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
         // Selection
-        Selection se= new Selection();
+        Selection se= new Selection(appData);
             se.setVisible(true);
             this.setVisible(false);
             this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -863,10 +865,11 @@ public class Calc extends javax.swing.JFrame {
         //</editor-fold>
         int s1[] = new int[5];
         int s2[] = new int[5];
+        AppData appData = new AppData("some test string", 1, 1, 1, 1);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Calc().setVisible(true);
+                new Calc(appData).setVisible(true);
             }
         });
     }

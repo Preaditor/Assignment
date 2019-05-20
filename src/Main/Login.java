@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import Data.AppData;
+import Main.Selection;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -23,10 +25,12 @@ public class Login extends javax.swing.JFrame {
 
     /**
      * Creates new form Login
+     * @param appData
      */
+    private final AppData appData;
 
-
-    public Login() {
+    public Login(AppData appData) {
+        this.appData = appData;
         initComponents();
         getContentPane().setBackground(Color.CYAN);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -189,8 +193,8 @@ public class Login extends javax.swing.JFrame {
             // loop through the result set
             while (rs.next()) {
                 if (user.equals(rs.getString("user")) && pass.equals(rs.getString("pass")) ){
-                    
-                    Selection  se= new Selection();
+                    rs.getString("Name");
+                    Selection  se= new Selection(appData);
                         se.setVisible(true);
                         this.setVisible(false);
                         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -228,6 +232,8 @@ public class Login extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -251,11 +257,11 @@ public class Login extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        AppData appData = new AppData("some test string", 1, 1, 1, 1);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                new Login(appData).setVisible(true);
             }
         });
     }
