@@ -35,6 +35,30 @@ public class AppData {
     public void setusername(String username) { 
         this.username = username;
     }
+    public int getos() {
+        return os;
+    }
+    public void setos(int os) { 
+        this.os = os;
+    }
+    public int getms() {
+        return ms;
+    }
+    public void setms(int ms) { 
+        this.ms = ms;
+    }
+    public int getgs() {
+        return gs;
+    }
+    public void setgs(int gs) { 
+        this.gs = gs;
+    }
+    public int getis() {
+        return is;
+    }
+    public void setis(int is) { 
+        this.is = is;
+    }
 
     
     
