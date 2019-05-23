@@ -54,14 +54,14 @@ public class Speedselection extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mph", "Kmph", "Mps", "Fps", "Knots" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mph", "Kph", "Mps", "Fps", "Knots" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mph", "Kmph", "Mps", "Fps", "Knots" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mph", "Kph", "Mps", "Fps", "Knots" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
@@ -154,245 +154,165 @@ public class Speedselection extends javax.swing.JFrame {
         // TODO add your handling code here:
         String op1 = (String) jComboBox1.getSelectedItem();
         String op2 = (String) jComboBox2.getSelectedItem();
-        if (op1.equals("Centimetres") && op2.equals("Inches") ){
-            String cm = jTextField1.getText();
-            float cf = Float.valueOf(cm);
+        if (op1.equals("Mph") && op2.equals("Kph") ){
+            String mph = jTextField1.getText();
+            float mphf = Float.valueOf(mph);
             float ans;
-            ans = (float) (cf/2.54);
+            ans = (float) (mphf*1.609);
             String sans = Float.toString(ans);
-            jTextField2.setText(sans + " In");
+            jTextField2.setText(sans + " Kph");
         }
-        else if (op1.equals("Centimetres") && op2.equals("Feet") ){
-            String cm = jTextField1.getText();
-            float cf = Float.valueOf(cm);
+        else if (op1.equals("Mph") && op2.equals("Mps") ){
+            String mph = jTextField1.getText();
+            float mphf = Float.valueOf(mph);
             float ans;
-            ans = (float) (cf/30.48);
+            ans = (float) (mphf/2.237);
             String sans = Float.toString(ans);
-            jTextField2.setText(sans +" Ft");
+            jTextField2.setText(sans +" Mps");
         }
-        else if (op1.equals("Centimetres") && op2.equals("Mile") ){
-            String cm = jTextField1.getText();
-            float cf = Float.valueOf(cm);
+        else if (op1.equals("Mph") && op2.equals("Fps") ){
+            String mph = jTextField1.getText();
+            float mphf = Float.valueOf(mph);
             float ans;
-            ans = (float) (cf*0.000006213711922);
+            ans = (float) (mphf*1.467);
             String sans = Float.toString(ans);
-            jTextField2.setText(sans + " Mi");
+            jTextField2.setText(sans +" Fps");
         }
-        else if (op1.equals("Centimetres") && op2.equals("Kilometres") ){
-            String cm = jTextField1.getText();
-            float cf = Float.valueOf(cm);
+        else if (op1.equals("Mph") && op2.equals("Knots") ){
+            String mph = jTextField1.getText();
+            float mphf = Float.valueOf(mph);
             float ans;
-            ans = (float) (cf/100000);
+            ans = (float) (mphf/1.151);
             String sans = Float.toString(ans);
-            jTextField2.setText(sans + " Km");
+            jTextField2.setText(sans +" Knots");
         }
-        else if (op1.equals("Centimetres") && op2.equals("metres") ){
-            String cm = jTextField1.getText();
-            float cf = Float.valueOf(cm);
+        else if (op1.equals("Kph") && op2.equals("Mph") ){
+            String kph = jTextField1.getText();
+            float kphf = Float.valueOf(kph);
             float ans;
-            ans = (float) (cf/100);
+            ans = (float) (kphf/1.609);
             String sans = Float.toString(ans);
-            jTextField2.setText(sans + " m");
+            jTextField2.setText(sans +" Mph");
         }
-        else if (op1.equals("Feet") && op2.equals("Centimetres") ){
-            String f = jTextField1.getText();
-            float ff = Float.valueOf(f);
+        else if (op1.equals("Kph") && op2.equals("Mps") ){
+            String kph = jTextField1.getText();
+            float kphf = Float.valueOf(kph);
             float ans;
-            ans = (float) (ff*30.48);
+            ans = (float) (kphf/3.6);
             String sans = Float.toString(ans);
-            jTextField2.setText(sans + " cm");
+            jTextField2.setText(sans +" Mps");
         }
-        else if (op1.equals("Feet") && op2.equals("Mile") ){
-            String f = jTextField1.getText();
-            float ff = Float.valueOf(f);
+        else if (op1.equals("Kph") && op2.equals("Fps") ){
+            String kph = jTextField1.getText();
+            float kphf = Float.valueOf(kph);
             float ans;
-            ans = (float) (ff*0.00018939);
+            ans = (float) (kphf/1.097);
             String sans = Float.toString(ans);
-            jTextField2.setText(sans + " Mi");
+            jTextField2.setText(sans +" Fps");
         }
-        else if (op1.equals("Feet") && op2.equals("Kilometres") ){
-            String f = jTextField1.getText();
-            float ff = Float.valueOf(f);
+        else if (op1.equals("Kph") && op2.equals("Knots") ){
+            String kph = jTextField1.getText();
+            float kphf = Float.valueOf(kph);
             float ans;
-            ans = (float) (ff/3280.8);
+            ans = (float) (kphf/1.852);
             String sans = Float.toString(ans);
-            jTextField2.setText(sans + " Km");
+            jTextField2.setText(sans +" Knots");
         }
-        else if (op1.equals("Feet") && op2.equals("Inches") ){
-            String f = jTextField1.getText();
-            float ff = Float.valueOf(f);
+        else if (op1.equals("Mps") && op2.equals("Mph") ){
+            String mps = jTextField1.getText();
+            float mpsf = Float.valueOf(mps);
             float ans;
-            ans = (float) (ff*12);
+            ans = (float) (mpsf*2.237);
             String sans = Float.toString(ans);
-            jTextField2.setText(sans + " In");
+            jTextField2.setText(sans +" Mph");
         }
-        else if (op1.equals("Feet") && op2.equals("metres") ){
-            String f = jTextField1.getText();
-            float ff = Float.valueOf(f);
+        else if (op1.equals("Mps") && op2.equals("Kph") ){
+            String mps = jTextField1.getText();
+            float mpsf = Float.valueOf(mps);
             float ans;
-            ans = (float) (ff/3.2808);
+            ans = (float) (mpsf*3.6);
             String sans = Float.toString(ans);
-            jTextField2.setText(sans + " In");
+            jTextField2.setText(sans +" Kph");
         }
-        else if (op1.equals("Mile") && op2.equals("Centimetres") ){
-            String mi = jTextField1.getText();
-            float mf = Float.valueOf(mi);
+        else if (op1.equals("Mps") && op2.equals("Fps") ){
+            String mps = jTextField1.getText();
+            float mpsf = Float.valueOf(mps);
             float ans;
-            ans = (float) (mf/0.000006213711922);
+            ans = (float) (mpsf*3.281);
             String sans = Float.toString(ans);
-            jTextField2.setText(sans + " Cm");
+            jTextField2.setText(sans +" Fps");
         }
-        else if (op1.equals("Mile") && op2.equals("Feet") ){
-            String mi = jTextField1.getText();
-            float mf = Float.valueOf(mi);
+        else if (op1.equals("Mps") && op2.equals("Knots") ){
+            String mps = jTextField1.getText();
+            float mpsf = Float.valueOf(mps);
             float ans;
-            ans = (float) (mf/0.00018939);
+            ans = (float) (mpsf*1.944);
             String sans = Float.toString(ans);
-            jTextField2.setText(sans + " Ft");
+            jTextField2.setText(sans +" Knots");
         }
-        else if (op1.equals("Mile") && op2.equals("Kilometres") ){
-            String mi = jTextField1.getText();
-            float mf = Float.valueOf(mi);
+        else if (op1.equals("Fps") && op2.equals("Mph") ){
+            String fps = jTextField1.getText();
+            float fpsf = Float.valueOf(fps);
             float ans;
-            ans = (float) (mf*1.609344 );
+            ans = (float) (fpsf/1.467);
             String sans = Float.toString(ans);
-            jTextField2.setText(sans + " Km");
+            jTextField2.setText(sans +" Mph");
         }
-        else if (op1.equals("Mile") && op2.equals("Inches") ){
-            String mi = jTextField1.getText();
-            float mf = Float.valueOf(mi);
+        else if (op1.equals("Fps") && op2.equals("Kph") ){
+            String fps = jTextField1.getText();
+            float fpsf = Float.valueOf(fps);
             float ans;
-            ans = (float) (mf*63360);
+            ans = (float) (fpsf*1.097);
             String sans = Float.toString(ans);
-            jTextField2.setText(sans + " In");
+            jTextField2.setText(sans +" Kph");
         }
-        else if (op1.equals("Mile") && op2.equals("metres") ){
-            String mi = jTextField1.getText();
-            float mf = Float.valueOf(mi);
+        else if (op1.equals("Fps") && op2.equals("Mps") ){
+            String fps = jTextField1.getText();
+            float fpsf = Float.valueOf(fps);
             float ans;
-            ans = (float) (mf/0.00062137);
+            ans = (float) (fpsf/3.281);
             String sans = Float.toString(ans);
-            jTextField2.setText(sans + " In");
+            jTextField2.setText(sans +" Mps");
         }
-        else if (op1.equals("Kilometres") && op2.equals("Centimetres") ){
-            String km = jTextField1.getText();
-            float kmf = Float.valueOf(km);
+        else if (op1.equals("Fps") && op2.equals("Knots") ){
+            String fps = jTextField1.getText();
+            float fpsf = Float.valueOf(fps);
             float ans;
-            ans = (float) (kmf/0.000010000);
+            ans = (float) (fpsf/1.688);
             String sans = Float.toString(ans);
-            jTextField2.setText(sans + " Cm");
+            jTextField2.setText(sans +" Knots");
         }
-        else if (op1.equals("Kilometres") && op2.equals("Feet") ){
-            String km = jTextField1.getText();
-            float kmf = Float.valueOf(km);
+        else if (op1.equals("Knots") && op2.equals("Mph") ){
+            String knt = jTextField1.getText();
+            float kntf = Float.valueOf(knt);
             float ans;
-            ans = (float) (kmf*3280.8);
+            ans = (float) (kntf*1.151);
             String sans = Float.toString(ans);
-            jTextField2.setText(sans + " Ft");
+            jTextField2.setText(sans +" Mph");
         }
-        else if (op1.equals("Kilometres") && op2.equals("Mile") ){
-            String km = jTextField1.getText();
-            float kmf = Float.valueOf(km);
+        else if (op1.equals("Knots") && op2.equals("Kph") ){
+            String knt = jTextField1.getText();
+            float kntf = Float.valueOf(knt);
             float ans;
-            ans = (float) (kmf/1.609344);
+            ans = (float) (kntf*1.852);
             String sans = Float.toString(ans);
-            jTextField2.setText(sans + " Mi");
+            jTextField2.setText(sans +" Kph");
         }
-        else if (op1.equals("Kilometres") && op2.equals("Inches") ){
-            String km = jTextField1.getText();
-            float kmf = Float.valueOf(km);
+        else if (op1.equals("Knots") && op2.equals("Mps") ){
+            String knt = jTextField1.getText();
+            float kntf = Float.valueOf(knt);
             float ans;
-            ans = (float) (kmf*39370.07874);
+            ans = (float) (kntf/1.944);
             String sans = Float.toString(ans);
-            jTextField2.setText(sans + " In");
+            jTextField2.setText(sans +" Mps");
         }
-        else if (op1.equals("Kilometres") && op2.equals("metres") ){
-            String km = jTextField1.getText();
-            float kmf = Float.valueOf(km);
+        else if (op1.equals("Knots") && op2.equals("Fps") ){
+            String knt = jTextField1.getText();
+            float kntf = Float.valueOf(knt);
             float ans;
-            ans = (float) (kmf/0.0010000);
+            ans = (float) (kntf*1.688);
             String sans = Float.toString(ans);
-            jTextField2.setText(sans + " M");
-        }
-        else if (op1.equals("Inches") && op2.equals("Centimetres") ){
-            String in = jTextField1.getText();
-            float inf = Float.valueOf(in);
-            float ans;
-            ans = (float) (inf*2.54);
-            String sans = Float.toString(ans);
-            jTextField2.setText(sans + " Cm");
-        }
-        else if (op1.equals("Inches") && op2.equals("Feet") ){
-            String in = jTextField1.getText();
-            float inf = Float.valueOf(in);
-            float ans;
-            ans = (float) (inf/12);
-            String sans = Float.toString(ans);
-            jTextField2.setText(sans + " Ft");
-        }
-        else if (op1.equals("Inches") && op2.equals("Mile") ){
-            String in = jTextField1.getText();
-            float inf = Float.valueOf(in);
-            float ans;
-            ans = (float) (inf/63360);
-            String sans = Float.toString(ans);
-            jTextField2.setText(sans + " Mi");
-        }
-        else if (op1.equals("Inches") && op2.equals("Kilometres") ){
-            String in = jTextField1.getText();
-            float inf = Float.valueOf(in);
-            float ans;
-            ans = (float) (inf/39370.079);
-            String sans = Float.toString(ans);
-            jTextField2.setText(sans + " Km");
-        }
-        else if (op1.equals("Inches") && op2.equals("metres") ){
-            String in = jTextField1.getText();
-            float inf = Float.valueOf(in);
-            float ans;
-            ans = (float) (inf/39.37);
-            String sans = Float.toString(ans);
-            jTextField2.setText(sans + " m");
-        }
-        else if (op1.equals("metres") && op2.equals("Centimetres") ){
-            String m = jTextField1.getText();
-            float mf = Float.valueOf(m);
-            float ans;
-            ans = (float) (mf*100);
-            String sans = Float.toString(ans);
-            jTextField2.setText(sans + " Cm");
-        }
-        else if (op1.equals("metres") && op2.equals("Feet") ){
-            String m = jTextField1.getText();
-            float mf = Float.valueOf(m);
-            float ans;
-            ans = (float) (mf*3.281);
-            String sans = Float.toString(ans);
-            jTextField2.setText(sans + " Ft");
-        }
-        else if (op1.equals("metres") && op2.equals("Mile") ){
-            String m = jTextField1.getText();
-            float mf = Float.valueOf(m);
-            float ans;
-            ans = (float) (mf/1609.344);
-            String sans = Float.toString(ans);
-            jTextField2.setText(sans + " Mi");
-        }
-        else if (op1.equals("metres") && op2.equals("Kilometres") ){
-            String m = jTextField1.getText();
-            float mf = Float.valueOf(m);
-            float ans;
-            ans = (float) (mf/1000);
-            String sans = Float.toString(ans);
-            jTextField2.setText(sans + " Km");
-        }
-        else if (op1.equals("metres") && op2.equals("Inches") ){
-            String m = jTextField1.getText();
-            float mf = Float.valueOf(m);
-            float ans;
-            ans = (float) (mf*39.37);
-            String sans = Float.toString(ans);
-            jTextField2.setText(sans + " In");
+            jTextField2.setText(sans +" Fps");
         }
 
         else {
