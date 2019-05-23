@@ -195,10 +195,6 @@ public class Login extends javax.swing.JFrame {
             while (rs.next()) {
                 if (user.equals(rs.getString("user")) && pass.equals(rs.getString("pass")) ){
                     appData.setusername(rs.getString("Name"));
-                    appData.setos(rs.getInt("Os"));
-                    appData.setms(rs.getInt("Ms"));
-                    appData.setgs(rs.getInt("Gs"));
-                    appData.setis(rs.getInt("Is"));
                     Selection  se= new Selection(appData);
                         se.setVisible(true);
                         this.setVisible(false);
