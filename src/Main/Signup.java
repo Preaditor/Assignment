@@ -166,10 +166,6 @@ public class Signup extends javax.swing.JFrame {
         String name = jTextField2.getText();
         String user = jTextField1.getText();
         String pass = jPasswordField1.getText();
-        int ms = 0;
-        int os = 0;
-        int is = 0;
-        int gs = 0;
         if (name.equals("")){
             jTextField3.setText("");
             jTextField3.setText("Missing Name");
@@ -183,16 +179,12 @@ public class Signup extends javax.swing.JFrame {
             jTextField3.setText("Missing Password");
         }
         else {
-            String sql = "INSERT INTO Logins(Name,user,pass, Ms, Os, Is, Gs) VALUES(?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO Logins(Name,user,pass) VALUES(?,?,?)";
             try (Connection conn = this.connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
                 pstmt.setString(1, name);
                 pstmt.setString(2, user);
                 pstmt.setString(3, pass);
-                pstmt.setInt(4, ms);
-                pstmt.setInt(5, os);
-                pstmt.setInt(6, is);
-                pstmt.setInt(7, gs);
                 pstmt.executeUpdate();
                 jTextField3.setText("Account Created!");
             } 
