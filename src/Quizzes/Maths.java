@@ -23,15 +23,19 @@ public class Maths extends javax.swing.JFrame {
     /**
      * Creates new form Maths
      */
+    int score = 0;
+    int sqn = 0;
+    String ans;
     private final AppData appData;
     public Maths(AppData appData) {
         this.appData = appData;
         initComponents();
+                    
+                    
                         getContentPane().setBackground(Color.CYAN);
                                 Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
-        int score;
-        score = 0;
+
     }
     private Connection connect(){
                 Connection conn = null;
@@ -61,22 +65,14 @@ public class Maths extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jTextField6 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField2.setText("jTextField2");
-
-        jTextField3.setText("jTextField3");
-
-        jTextField4.setText("jTextField4");
-
-        jTextField5.setText("jTextField5");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "B", "C", "D" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -84,6 +80,11 @@ public class Maths extends javax.swing.JFrame {
         });
 
         jButton1.setText("Submit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Start");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -91,8 +92,6 @@ public class Maths extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-
-        jTextField6.setText("jTextField6");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,13 +111,13 @@ public class Maths extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+                                    .addComponent(jTextField3)
+                                    .addComponent(jTextField4)
+                                    .addComponent(jTextField5)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(150, 150, 150)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 9, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -156,25 +155,62 @@ public class Maths extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        String sql = "SELECT Question no, Question, ans, ans1, ans2, ans3, ans4 FROM Maths";
+        ++sqn;
+        String sql = "SELECT Qno, Question, ans, ans1, ans2, ans3, ans4 FROM Maths WHERE Qno="+ sqn;
             try (Connection conn = this.connect();
             Statement stmt  = conn.createStatement();
             ResultSet rs    = stmt.executeQuery(sql)){
-            int score = 0;
-            int qn = rs.getInt("Question no");
-            
-            // loop through the result set
+            int qn = rs.getInt("Qno");
+            String qns = Integer.toString(qn);
             while (rs.next()) {
+                ans = rs.getString("ans");
+                jTextField6.setText(qns);
                 jTextField1.setText(rs.getString("Question"));
                 jTextField2.setText(rs.getString("Ans1"));
                 jTextField3.setText(rs.getString("Ans2"));
                 jTextField4.setText(rs.getString("Ans3"));
                 jTextField5.setText(rs.getString("Ans4"));
                 }
-        } catch (SQLException e) {
+            }
+            catch (SQLException e) {
             jTextField1.setText(e.getMessage());
-        }
+            }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String Cans = (String) jComboBox1.getSelectedItem();
+        if (Cans.equals(ans)){   
+            String sql = "SELECT Qno, Question, ans, ans1, ans2, ans3, ans4 FROM Maths WHERE Qno="+ sqn;
+            try (Connection conn = this.connect();
+            Statement stmt  = conn.createStatement();
+            ResultSet rs    = stmt.executeQuery(sql)){
+            int qn = rs.getInt("Qno");
+            String qns = Integer.toString(qn);
+            ++sqn;
+            while (rs.next()) {
+                ans = rs.getString("ans");
+                jTextField6.setText(qns);
+                jTextField1.setText(rs.getString("Question"));
+                jTextField2.setText(rs.getString("Ans1"));
+                jTextField3.setText(rs.getString("Ans2"));
+                jTextField4.setText(rs.getString("Ans3"));
+                jTextField5.setText(rs.getString("Ans4"));
+                }
+            }
+            catch (SQLException e) {
+            jTextField1.setText(e.getMessage());
+            }
+        }
+        else {
+            Quizzes.Quiz qu= new Quizzes.Quiz(appData);
+                qu.setVisible(true);
+                this.setVisible(false);
+                this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+            this.dispose();
+        }
+            
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

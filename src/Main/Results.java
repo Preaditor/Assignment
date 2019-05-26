@@ -53,13 +53,13 @@ public class Results extends javax.swing.JFrame {
 
         jButton1.setText("Back");
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("Maths");
 
-        jLabel2.setText("jLabel2");
+        jLabel2.setText("ICT");
 
-        jLabel3.setText("jLabel3");
+        jLabel3.setText("Geography");
 
-        jLabel4.setText("jLabel4");
+        jLabel4.setText("Odd One Out");
 
         jButton2.setText("View Results");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +77,7 @@ public class Results extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
