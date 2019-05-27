@@ -11,7 +11,10 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 /**
  *
  * @author 10205453
@@ -27,6 +30,18 @@ public class Results extends javax.swing.JFrame {
                 getContentPane().setBackground(Color.CYAN);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+    }
+    private Connection connect(){
+                Connection conn = null;
+        try {
+            String currentDirectory = System.getProperty("user.dir");
+            String url = "jdbc:sqlite:" + currentDirectory +"\\DB/Users.db";
+            conn = DriverManager.getConnection(url);
+        }
+        catch (SQLException e) {
+            jTextField2.setText(e.getMessage());
+        }
+        return conn;
     }
 
     /** This method is called from within the constructor to
@@ -48,10 +63,16 @@ public class Results extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
+        jTextField5 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Maths");
 
@@ -61,10 +82,25 @@ public class Results extends javax.swing.JFrame {
 
         jLabel4.setText("Odd One Out");
 
+        jTextField1.setEditable(false);
+
+        jTextField2.setEditable(false);
+
+        jTextField3.setEditable(false);
+
+        jTextField4.setEditable(false);
+
         jButton2.setText("View Results");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+
+        jTextField5.setEditable(false);
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
             }
         });
 
@@ -87,7 +123,7 @@ public class Results extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4))
-                        .addGap(83, 83, 83)
+                        .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField3)
                             .addComponent(jTextField4))))
@@ -101,6 +137,10 @@ public class Results extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton2)
                         .addGap(162, 162, 162))))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTextField5)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,7 +165,9 @@ public class Results extends javax.swing.JFrame {
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54)
                 .addComponent(jButton2)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -133,15 +175,45 @@ public class Results extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        String jtf1 = String.valueOf(appData.os);
-        String jtf2 = String.valueOf(appData.ms);
-        String jtf3 = String.valueOf(appData.gs);
-        String jtf4 = String.valueOf(appData.is);
-        jTextField1.setText("You've scored " + jtf1 + " on this quiz!");
-        jTextField2.setText("You've scored " + jtf2 + " on this quiz!");
-        jTextField3.setText("You've scored " + jtf3 + " on this quiz!");
-        jTextField4.setText("You've scored " + jtf4 + " on this quiz!");
+        String MS = Integer.toString(appData.ms);
+        String OS = Integer.toString(appData.os);
+        String GS = Integer.toString(appData.gs);
+        String IS = Integer.toString(appData.iss);
+        String name = appData.username;
+        String sql = "INSERT INTO Logins(Ms, Gs, Os, Iss) VALUES(?,?,?,?) WHERE name ="+ name;
+        try (Connection conn = this.connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                pstmt.setString(1, MS);
+                pstmt.setString(2, OS);
+                pstmt.setString(3, GS);
+                pstmt.setString(4, IS);
+                pstmt.executeUpdate();
+                String jtf1 = String.valueOf(appData.os);
+                String jtf2 = String.valueOf(appData.ms);
+                String jtf3 = String.valueOf(appData.gs);
+                String jtf4 = String.valueOf(appData.iss);
+                jTextField1.setText("You've scored " + jtf1 + " on this quiz!");
+                jTextField2.setText("You've scored " + jtf2 + " on this quiz!");
+                jTextField3.setText("You've scored " + jtf3 + " on this quiz!");
+                jTextField4.setText("You've scored " + jtf4 + " on this quiz!");
+            } 
+            catch (SQLException e) {
+                jTextField5.setText(e.getMessage());
+            }  
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Quizzes.Quiz qu= new Quizzes.Quiz(appData);
+            qu.setVisible(true);
+            this.setVisible(false);
+            this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+     this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,6 +262,7 @@ public class Results extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 
 }

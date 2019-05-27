@@ -72,6 +72,16 @@ public class Maths extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jTextField1.setEditable(false);
+
+        jTextField2.setEditable(false);
+
+        jTextField3.setEditable(false);
+
+        jTextField4.setEditable(false);
+
+        jTextField5.setEditable(false);
+
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "B", "C", "D" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +102,8 @@ public class Maths extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+
+        jTextField6.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -188,6 +200,7 @@ public class Maths extends javax.swing.JFrame {
             int qn = rs.getInt("Qno");
             String qns = Integer.toString(qn);
             ++sqn;
+            ++score;
             while (rs.next()) {
                 ans = rs.getString("ans");
                 jTextField6.setText(qns);
@@ -202,8 +215,17 @@ public class Maths extends javax.swing.JFrame {
             jTextField1.setText(e.getMessage());
             }
         }
+        else if (sqn==score){
+            appData.setms(score);
+            Main.Results qu= new Main.Results(appData);
+                qu.setVisible(true);
+                this.setVisible(false);
+                this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+            this.dispose();
+        }
         else {
-            Quizzes.Quiz qu= new Quizzes.Quiz(appData);
+            appData.setms(score);
+            Quizzes.Wans qu= new Quizzes.Wans(appData);
                 qu.setVisible(true);
                 this.setVisible(false);
                 this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);

@@ -19,15 +19,15 @@ public class AppData {
     public String username;
     public int ms;
     public int gs;
-    public int is;
+    public int iss;
     public int os;
     
-    public AppData(String username, int os, int ms, int gs, int is){
+    public AppData(String username, int os, int ms, int gs, int iss){
             this.username = username;
             this.os = os;
             this.ms = ms;
             this.gs = gs;
-            this.is = is;   
+            this.iss = iss;   
     }
     public String getusername() {
         return username;
@@ -54,10 +54,10 @@ public class AppData {
         this.gs = gs;
     }
     public int getis() {
-        return is;
+        return iss;
     }
-    public void setis(int is) { 
-        this.is = is;
+    public void setis(int iss) { 
+        this.iss = iss;
     }
 
     
