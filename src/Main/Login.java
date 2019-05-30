@@ -253,7 +253,7 @@ public class Login extends javax.swing.JFrame {
                     appData.setms(rs.getInt("Ms"));
                     appData.setos(rs.getInt("Os"));
                     appData.setgs(rs.getInt("Gs"));
-                    appData.setICTs(rs.getInt("Iss"));
+                    appData.setits(rs.getInt("Iss"));
                     Selection  se= new Selection(appData);
                         se.setVisible(true);
                         this.setVisible(false);

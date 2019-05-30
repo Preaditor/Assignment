@@ -19,15 +19,15 @@ public class AppData {
     public String username;
     public int ms;
     public int gs;
-    public int ICTs;
+    public int its;
     public int os;
     
-    public AppData(String username, int os, int ms, int gs, int ICTs){
+    public AppData(String username, int os, int ms, int gs, int its){
             this.username = username;
             this.os = os;
             this.ms = ms;
             this.gs = gs;
-            this.ICTs = ICTs;   
+            this.its = its;   
     }
     public String getusername() {
         return username;
@@ -53,11 +53,11 @@ public class AppData {
     public void setgs(int gs) { 
         this.gs = gs;
     }
-    public int getICTs() {
-        return ICTs;
+    public int getits() {
+        return its;
     }
-    public void setICTs(int ICTs) { 
-        this.ICTs = ICTs;
+    public void setits(int its) { 
+        this.its = its;
     }
 
     

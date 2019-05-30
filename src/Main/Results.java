@@ -180,13 +180,13 @@ public class Results extends javax.swing.JFrame {
         try (Connection conn = this.connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
                 pstmt.setInt(1, appData.ms);
-                pstmt.setInt(2, appData.ICTs);
+                pstmt.setInt(2, appData.its);
                 pstmt.setInt(3, appData.gs);
                 pstmt.setInt(4, appData.os);
                 pstmt.setString(5, appData.username);
                 pstmt.executeUpdate();
                 String jtf1 = String.valueOf(appData.ms);
-                String jtf2 = String.valueOf(appData.ICTs);
+                String jtf2 = String.valueOf(appData.its);
                 String jtf3 = String.valueOf(appData.gs);
                 String jtf4 = String.valueOf(appData.os);
                 jTextField1.setText("You've scored " + jtf1 + " on this quiz!");
