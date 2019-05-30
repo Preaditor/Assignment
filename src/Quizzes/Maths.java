@@ -35,6 +35,27 @@ public class Maths extends javax.swing.JFrame {
                         getContentPane().setBackground(Color.CYAN);
                                 Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        ++sqn;
+        String sql = "SELECT Qno, Question, ans, ans1, ans2, ans3, ans4 FROM Maths WHERE Qno="+ sqn;
+            try (Connection conn = this.connect();
+            Statement stmt  = conn.createStatement();
+            ResultSet rs    = stmt.executeQuery(sql)){
+            int qn = rs.getInt("Qno");
+            String qns = Integer.toString(qn);
+            while (rs.next()) {
+                ans = rs.getString("ans");
+                jTextField6.setText(qns);
+                jTextField1.setText(rs.getString("Question"));
+                jTextField2.setText(rs.getString("Ans1"));
+                jTextField3.setText(rs.getString("Ans2"));
+                jTextField4.setText(rs.getString("Ans3"));
+                jTextField5.setText(rs.getString("Ans4"));
+                ++sqn;
+                }
+            }
+            catch (SQLException e) {
+            jTextField1.setText(e.getMessage());
+            }
 
     }
     private Connection connect(){
@@ -167,26 +188,7 @@ public class Maths extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        ++sqn;
-        String sql = "SELECT Qno, Question, ans, ans1, ans2, ans3, ans4 FROM Maths WHERE Qno="+ sqn;
-            try (Connection conn = this.connect();
-            Statement stmt  = conn.createStatement();
-            ResultSet rs    = stmt.executeQuery(sql)){
-            int qn = rs.getInt("Qno");
-            String qns = Integer.toString(qn);
-            while (rs.next()) {
-                ans = rs.getString("ans");
-                jTextField6.setText(qns);
-                jTextField1.setText(rs.getString("Question"));
-                jTextField2.setText(rs.getString("Ans1"));
-                jTextField3.setText(rs.getString("Ans2"));
-                jTextField4.setText(rs.getString("Ans3"));
-                jTextField5.setText(rs.getString("Ans4"));
-                }
-            }
-            catch (SQLException e) {
-            jTextField1.setText(e.getMessage());
-            }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -262,7 +264,7 @@ public class Maths extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        AppData appData = new AppData("some test string", 1, 1, 1, 1);
+        AppData appData = new AppData("name", 0, 0, 0, 0);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Maths(appData).setVisible(true);

@@ -198,7 +198,7 @@ public class Quiz extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Quiz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        AppData appData = new AppData("some test string", 1, 1, 1, 1);
+        AppData appData = new AppData("name", 0, 0, 0, 0);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

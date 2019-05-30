@@ -121,7 +121,7 @@ public class Wans extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        AppData appData = new AppData("some test string", 1, 1, 1, 1);
+        AppData appData = new AppData("name", 0, 0, 0, 0);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Wans(appData).setVisible(true);

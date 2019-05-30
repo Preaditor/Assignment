@@ -175,23 +175,20 @@ public class Results extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        String MS = Integer.toString(appData.ms);
-        String OS = Integer.toString(appData.os);
-        String GS = Integer.toString(appData.gs);
-        String IS = Integer.toString(appData.iss);
-        String name = appData.username;
-        String sql = "INSERT INTO Logins(Ms, Gs, Os, Iss) VALUES(?,?,?,?) WHERE name ="+ name;
+        String sql;
+        sql = "UPDATE Logins SET Ms = ?, Gs = ?, Os = ?, Iss = ? WHERE Name = ?" ;
         try (Connection conn = this.connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                pstmt.setString(1, MS);
-                pstmt.setString(2, OS);
-                pstmt.setString(3, GS);
-                pstmt.setString(4, IS);
+                pstmt.setInt(1, appData.ms);
+                pstmt.setInt(2, appData.ICTs);
+                pstmt.setInt(3, appData.gs);
+                pstmt.setInt(4, appData.os);
+                pstmt.setString(5, appData.username);
                 pstmt.executeUpdate();
-                String jtf1 = String.valueOf(appData.os);
-                String jtf2 = String.valueOf(appData.ms);
+                String jtf1 = String.valueOf(appData.ms);
+                String jtf2 = String.valueOf(appData.ICTs);
                 String jtf3 = String.valueOf(appData.gs);
-                String jtf4 = String.valueOf(appData.iss);
+                String jtf4 = String.valueOf(appData.os);
                 jTextField1.setText("You've scored " + jtf1 + " on this quiz!");
                 jTextField2.setText("You've scored " + jtf2 + " on this quiz!");
                 jTextField3.setText("You've scored " + jtf3 + " on this quiz!");

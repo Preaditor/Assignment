@@ -13,21 +13,21 @@ public class AppData {
     // uname = user name
     // ms = maths score
     // gs = geography score
-    // is = ICT score
+    // ICITs = ICT score
     // os = odd one out score
     
     public String username;
     public int ms;
     public int gs;
-    public int iss;
+    public int ICTs;
     public int os;
     
-    public AppData(String username, int os, int ms, int gs, int iss){
+    public AppData(String username, int os, int ms, int gs, int ICTs){
             this.username = username;
             this.os = os;
             this.ms = ms;
             this.gs = gs;
-            this.iss = iss;   
+            this.ICTs = ICTs;   
     }
     public String getusername() {
         return username;
@@ -53,12 +53,14 @@ public class AppData {
     public void setgs(int gs) { 
         this.gs = gs;
     }
-    public int getis() {
-        return iss;
+    public int getICTs() {
+        return ICTs;
     }
-    public void setis(int iss) { 
-        this.iss = iss;
+    public void setICTs(int ICTs) { 
+        this.ICTs = ICTs;
     }
+
+    
 
     
     

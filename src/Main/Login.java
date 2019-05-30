@@ -8,6 +8,7 @@ import Main.Selection;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import static java.lang.Thread.sleep;
 import java.sql.Connection;
 import java.sql.Date;
@@ -82,6 +83,11 @@ public class Login extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton1KeyPressed(evt);
             }
         });
 
@@ -230,6 +236,40 @@ public class Login extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            String sql = "SELECT Name, user, pass FROM Logins";
+        String user = jTextField1.getText();
+        String pass = jPasswordField1.getText();
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+            
+            // loop through the result set
+            while (rs.next()) {
+                if (user.equals(rs.getString("user")) && pass.equals(rs.getString("pass")) ){
+                    appData.setusername(rs.getString("Name"));
+                    appData.setms(rs.getInt("Ms"));
+                    appData.setos(rs.getInt("Os"));
+                    appData.setgs(rs.getInt("Gs"));
+                    appData.setICTs(rs.getInt("Iss"));
+                    Selection  se= new Selection(appData);
+                        se.setVisible(true);
+                        this.setVisible(false);
+                        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+                    this.dispose();
+                }
+                else {
+                    jTextField2.setText("Invalid username or password");
+                }
+            }
+        } catch (SQLException e) {
+            jTextField2.setText(e.getMessage());
+        }
+        }
+    }//GEN-LAST:event_jButton1KeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -258,7 +298,7 @@ public class Login extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        AppData appData = new AppData("some test string", 1, 1, 1, 1);
+        AppData appData = new AppData("name", 0, 0, 0, 0);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
