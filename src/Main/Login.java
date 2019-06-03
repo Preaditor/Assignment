@@ -34,7 +34,7 @@ public class Login extends javax.swing.JFrame {
     public Login(AppData appData) {
         this.appData = appData;
         initComponents();
-        getContentPane().setBackground(Color.CYAN);
+        getContentPane().setBackground(new Color(66,122,244));
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
@@ -190,7 +190,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String sql = "SELECT Name, user, pass FROM Logins";
+        String sql = "SELECT Name, user, pass, Ms, Os, Gs, Iss FROM Logins";
         String user = jTextField1.getText();
         String pass = jPasswordField1.getText();
         try (Connection conn = this.connect();
@@ -201,6 +201,10 @@ public class Login extends javax.swing.JFrame {
             while (rs.next()) {
                 if (user.equals(rs.getString("user")) && pass.equals(rs.getString("pass")) ){
                     appData.setusername(rs.getString("Name"));
+                    appData.setms(rs.getInt("Ms"));
+                    appData.setos(rs.getInt("Os"));
+                    appData.setgs(rs.getInt("Gs"));
+                    appData.setits(rs.getInt("Iss"));
                     Selection  se= new Selection(appData);
                         se.setVisible(true);
                         this.setVisible(false);

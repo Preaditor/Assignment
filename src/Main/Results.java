@@ -27,9 +27,17 @@ public class Results extends javax.swing.JFrame {
         this.appData = appData;
         String name = appData.username;
         initComponents();
-                getContentPane().setBackground(Color.CYAN);
+                getContentPane().setBackground(new Color(66,122,244));
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        String jtf1 = String.valueOf(appData.ms);
+        String jtf2 = String.valueOf(appData.its);
+        String jtf3 = String.valueOf(appData.gs);
+        String jtf4 = String.valueOf(appData.os);
+        jTextField1.setText("You've scored " + jtf1 + " on this quiz!");
+        jTextField2.setText("You've scored " + jtf2 + " on this quiz!");
+        jTextField3.setText("You've scored " + jtf3 + " on this quiz!");
+        jTextField4.setText("You've scored " + jtf4 + " on this quiz!");
     }
     private Connection connect(){
                 Connection conn = null;
@@ -90,7 +98,7 @@ public class Results extends javax.swing.JFrame {
 
         jTextField4.setEditable(false);
 
-        jButton2.setText("View Results");
+        jButton2.setText("Save Results");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -175,6 +183,7 @@ public class Results extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
         String sql;
         sql = "UPDATE Logins SET Ms = ?, Gs = ?, Os = ?, Iss = ? WHERE Name = ?" ;
         try (Connection conn = this.connect();
@@ -185,14 +194,6 @@ public class Results extends javax.swing.JFrame {
                 pstmt.setInt(4, appData.os);
                 pstmt.setString(5, appData.username);
                 pstmt.executeUpdate();
-                String jtf1 = String.valueOf(appData.ms);
-                String jtf2 = String.valueOf(appData.its);
-                String jtf3 = String.valueOf(appData.gs);
-                String jtf4 = String.valueOf(appData.os);
-                jTextField1.setText("You've scored " + jtf1 + " on this quiz!");
-                jTextField2.setText("You've scored " + jtf2 + " on this quiz!");
-                jTextField3.setText("You've scored " + jtf3 + " on this quiz!");
-                jTextField4.setText("You've scored " + jtf4 + " on this quiz!");
             } 
             catch (SQLException e) {
                 jTextField5.setText(e.getMessage());
