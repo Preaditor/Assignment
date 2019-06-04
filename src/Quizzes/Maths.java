@@ -30,7 +30,8 @@ public class Maths extends javax.swing.JFrame {
     private final AppData appData;
     public Maths(AppData appData) {
         this.appData = appData;
-        initComponents();                   
+        initComponents();    
+        
         getContentPane().setBackground(new Color(66,122,244));
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
@@ -42,7 +43,6 @@ public class Maths extends javax.swing.JFrame {
             int qn = rs.getInt("Qno");
             String qns = Integer.toString(qn);
             while (rs.next()) {
-                jTextField7.setVisible(false);
                 ans = rs.getString("ans");
                 help = rs.getString("Help");
                 jTextField6.setText(qns);
@@ -122,6 +122,7 @@ public class Maths extends javax.swing.JFrame {
         jTextField6.setEditable(false);
 
         jTextField7.setEditable(false);
+        jTextField7.setOpaque(false);
 
         jButton2.setText("Help");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -212,6 +213,7 @@ public class Maths extends javax.swing.JFrame {
             while (rs.next()) {
                 ans = rs.getString("ans");
                 help = rs.getString("Help");
+                jTextField7.setText(help);
                 jTextField6.setText(qns);
                 jTextField1.setText(rs.getString("Question"));
                 jTextField2.setText(rs.getString("Ans1"));
