@@ -22,8 +22,10 @@ public class Calcopt extends javax.swing.JFrame {
     /**
      * Creates new form Calcopt
      */
+    //setup communication for AppData
     private final AppData appData;
     public Calcopt(AppData appData) {
+        //general form setup
         this.appData = appData;
         initComponents();
         getContentPane().setBackground(new Color(66,122,244));
@@ -118,7 +120,7 @@ public class Calcopt extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // Takes the user to the calculator screen
         Calculator.Calc ca= new Calculator.Calc(appData);
             ca.setVisible(true);
             this.setVisible(false);
@@ -127,7 +129,7 @@ public class Calcopt extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        // Takes the user to the length conversion screen
         Lengthselection ls = new Lengthselection(appData);
             ls.setVisible(true);
             this.setVisible(false);
@@ -136,7 +138,7 @@ public class Calcopt extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+        // Takes the user to the temperature conversion screen
         Tempselection ls = new Tempselection(appData);
             ls.setVisible(true);
             this.setVisible(false);
@@ -145,7 +147,7 @@ public class Calcopt extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
+        // Takes the user to the speed conversion screen
         Speedselection ls = new Speedselection(appData);
             ls.setVisible(true);
             this.setVisible(false);
@@ -154,7 +156,7 @@ public class Calcopt extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // Takes the user to the weight conversion screen
         Weightselection ls = new Weightselection(appData);
             ls.setVisible(true);
             this.setVisible(false);

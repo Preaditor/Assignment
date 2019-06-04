@@ -19,8 +19,10 @@ public class Quiz extends javax.swing.JFrame {
     /**
      * Creates new form Quiz
      */
+    //setup communication for AppData
     private final AppData appData;
     public Quiz(AppData appData) {
+        //general form setup
         this.appData = appData;
         initComponents();
                         getContentPane().setBackground(new Color(66,122,244));
@@ -128,7 +130,7 @@ public class Quiz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // Takes the user to the ICT quiz screen
         ICT it= new ICT(appData);
             it.setVisible(true);
             this.setVisible(false);
@@ -137,7 +139,7 @@ public class Quiz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        // Takes the user to the selection screen
         Main.Selection se= new Main.Selection(appData);
             se.setVisible(true);
             this.setVisible(false);
@@ -146,7 +148,7 @@ public class Quiz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // Takes the user to the maths quiz screen
         Maths ma= new Maths(appData);
             ma.setVisible(true);
             this.setVisible(false);
@@ -155,7 +157,7 @@ public class Quiz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // Odd
+        // Takes the user to the odd one out quiz screen
         ooo odd= new ooo(appData);
             odd.setVisible(true);
             this.setVisible(false);
@@ -164,7 +166,7 @@ public class Quiz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // Geo
+        // Takes the user to the geography quiz screen
         Geo g= new Geo(appData);
             g.setVisible(true);
             this.setVisible(false);

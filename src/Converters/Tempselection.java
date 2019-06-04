@@ -20,8 +20,10 @@ public class Tempselection extends javax.swing.JFrame {
     /**
      * Creates new form Tempselection
      */
+    //setup communication for AppData
     private final AppData appData;
     public Tempselection(AppData appData) {
+        //general form setup
         this.appData = appData;
         initComponents();
         getContentPane().setBackground(new Color(66,122,244));
@@ -134,7 +136,7 @@ public class Tempselection extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // Takes the user to the conversion selection screen
         Calcopt ca= new Calcopt(appData);
         ca.setVisible(true);
         this.setVisible(false);
@@ -151,7 +153,7 @@ public class Tempselection extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // logic for which conversion to perform and its calculation
         String op1 = (String) jComboBox1.getSelectedItem();
         String op2 = (String) jComboBox2.getSelectedItem();
         if (op1.equals("Celsius") && op2.equals("Fahrenheit") ){

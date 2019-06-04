@@ -19,8 +19,10 @@ public class Wans extends javax.swing.JFrame {
     /**
      * Creates new form Wans
      */
+    //setup communication for AppData
     private final AppData appData;
     public Wans(AppData appData) {
+        //general form setup
         this.appData = appData;
         initComponents();
                     
@@ -85,7 +87,7 @@ public class Wans extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        // button to return user to the selection screen
         Main.Selection se= new Main.Selection(appData);
         se.setVisible(true);
         this.setVisible(false);

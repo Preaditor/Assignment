@@ -24,6 +24,7 @@ public class Calc extends javax.swing.JFrame {
     /**
      * Creates new form Calc
      */
+    // setup for figuring out what operation to complete
     public int ps;
     public int mt;
     public int dv;
@@ -61,6 +62,7 @@ public class Calc extends javax.swing.JFrame {
     private final AppData appData;
 
     public Calc(AppData appData) {
+        //main calculator setup, including background color and positioning for the window
         this.appData = appData;
         initComponents();
         getContentPane().setBackground(new Color(66,122,244));
@@ -516,7 +518,7 @@ public class Calc extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    // buttons for back and converters 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         // options
         Converters.Calcopt opt= new Converters.Calcopt(appData);
@@ -538,9 +540,9 @@ public class Calc extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-
+    
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        // Clear
+        // Clear - removes text from textboxes and resets the ints for operations
         jTextField1.setText("");
         jTextField3.setText("");
         ps = 0;
@@ -548,7 +550,7 @@ public class Calc extends javax.swing.JFrame {
         dv = 0;
         sb = 0;
     }//GEN-LAST:event_jButton17ActionPerformed
-
+    // number buttons, gets current text and adds the designated number
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // 8
         String org = jTextField1.getText();
@@ -596,7 +598,7 @@ public class Calc extends javax.swing.JFrame {
         String org = jTextField1.getText();
         jTextField1.setText(org + "1");
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    // button operators - chanes value of operator int and clears bottom textbox while inputing to top text box
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // /
         String div = jTextField1.getText();
@@ -632,7 +634,7 @@ public class Calc extends javax.swing.JFrame {
         String org = "";
         sb = 1;
     }//GEN-LAST:event_jButton13ActionPerformed
-
+    // logic for figuring out what operation to perform 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // =
         if (ps == 1){
@@ -732,7 +734,7 @@ public class Calc extends javax.swing.JFrame {
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
-
+    // extra math functions 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         // squared
         String sp2 = jTextField1.getText();

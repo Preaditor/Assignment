@@ -22,14 +22,17 @@ import java.sql.Statement;
 public class Results extends javax.swing.JFrame {
 
     /** Creates new form Results */
+    //setup communication with AppData.java
     private final AppData appData;
     public Results(AppData appData) {
+        //general form setup
         this.appData = appData;
         String name = appData.username;
         initComponents();
                 getContentPane().setBackground(new Color(66,122,244));
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        // taking values from AppData.java, setting the string for textfields 
         String jtf1 = String.valueOf(appData.ms);
         String jtf2 = String.valueOf(appData.its);
         String jtf3 = String.valueOf(appData.gs);
@@ -39,6 +42,7 @@ public class Results extends javax.swing.JFrame {
         jTextField3.setText("You've scored " + jtf3 + " on this quiz!");
         jTextField4.setText("You've scored " + jtf4 + " on this quiz!");
     }
+    // sql connection setup
     private Connection connect(){
                 Connection conn = null;
         try {
@@ -182,8 +186,7 @@ public class Results extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        
+        // Sql statement to save quiz scores
         String sql;
         sql = "UPDATE Logins SET Ms = ?, Gs = ?, Os = ?, Iss = ? WHERE Name = ?" ;
         try (Connection conn = this.connect();
@@ -205,7 +208,7 @@ public class Results extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // Button to return to the quiz page
         Quizzes.Quiz qu= new Quizzes.Quiz(appData);
             qu.setVisible(true);
             this.setVisible(false);

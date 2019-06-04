@@ -26,14 +26,17 @@ public class Signup extends javax.swing.JFrame {
     /**
      * Creates new form Signup
      */
+    //setup AppData.java
     private final AppData appData;
     public Signup(AppData appData) {
+        // main form setup
         this.appData = appData;
         initComponents();
                         getContentPane().setBackground(new Color(66,122,244));
                                 Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
+    // sql connection setup
     private Connection connect(){
                 Connection conn = null;
         try {
@@ -174,10 +177,11 @@ public class Signup extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here: 
+        // takes user input from all three boxes
         String name = jTextField2.getText();
         String user = jTextField1.getText();
         String pass = jPasswordField1.getText();
+        // logic to check if any box is empty
         if (name.equals("")){
             jTextField3.setText("");
             jTextField3.setText("Missing Name");
@@ -191,6 +195,7 @@ public class Signup extends javax.swing.JFrame {
             jTextField3.setText("Missing Password");
         }
         else {
+            // sql statement to input username, name and password into database
             String sql = "INSERT INTO Logins(Name,user,pass) VALUES(?,?,?)";
             try (Connection conn = this.connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -208,7 +213,7 @@ public class Signup extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // Button to go back to the login page
         Login lg= new Login(appData);
             lg.setVisible(true);
             this.setVisible(false);

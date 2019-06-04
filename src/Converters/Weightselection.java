@@ -18,8 +18,10 @@ public class Weightselection extends javax.swing.JFrame {
     /**
      * Creates new form Weightselection
      */
+    //setup communication for AppData
     private final AppData appData;
     public Weightselection(AppData appData) {
+        //general form setup
         this.appData = appData;
         initComponents();
         getContentPane().setBackground(new Color(66,122,244));
@@ -131,7 +133,7 @@ public class Weightselection extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // logic for which conversion to perform and its calculation
         String op1 = (String) jComboBox1.getSelectedItem();
         String op2 = (String) jComboBox2.getSelectedItem();
         if (op1.equals("Gram") && op2.equals("Kilogram") ){
@@ -304,7 +306,7 @@ public class Weightselection extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // Takes the user to the conversion selection screen
         Calcopt ca= new Calcopt(appData);
         ca.setVisible(true);
         this.setVisible(false);

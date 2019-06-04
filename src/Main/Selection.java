@@ -200,11 +200,7 @@ public class Selection extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        Profile pr= new Profile(appData);
-            pr.setVisible(true);
-            this.setVisible(false);
-            this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-     this.dispose();
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**

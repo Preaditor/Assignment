@@ -19,8 +19,10 @@ public class Help extends javax.swing.JFrame {
     /**
      * Creates new form Help
      */
+    //setup for communicating with AppData.java
     private final AppData appData;
     public Help(AppData appData) {
+        //general form setup
         this.appData = appData;
         initComponents();
         getContentPane().setBackground(new Color(66,122,244));
@@ -85,7 +87,7 @@ public class Help extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // Button to go back to the login page
         Login lg= new Login(appData);
             lg.setVisible(true);
             this.setVisible(false);

@@ -23,26 +23,33 @@ public class Maths extends javax.swing.JFrame {
     /**
      * Creates new form Maths
      */
+    //setup of score, question number and answer 
+    
     int score = 0;
     int sqn = 0;
     String ans;
     String help;
+    //setup of communicating with AppData.java
     private final AppData appData;
-    public Maths(AppData appData) {
+    public Maths(AppData appData ) {
+        //general form setup
         this.appData = appData;
-        initComponents();    
-        
+        initComponents();
         getContentPane().setBackground(new Color(66,122,244));
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        //first question setup 
         ++sqn;
+        //sql statement to get the first question
         String sql = "SELECT Qno, Question, ans, ans1, ans2, ans3, ans4, Help FROM Maths WHERE Qno="+ sqn;
             try (Connection conn = this.connect();
             Statement stmt  = conn.createStatement();
             ResultSet rs    = stmt.executeQuery(sql)){
             int qn = rs.getInt("Qno");
             String qns = Integer.toString(qn);
+            // loop to go through the result of the sql statement
             while (rs.next()) {
+                //setting textfield text and string for ans.
                 ans = rs.getString("ans");
                 help = rs.getString("Help");
                 jTextField6.setText(qns);
@@ -52,6 +59,7 @@ public class Maths extends javax.swing.JFrame {
                 jTextField4.setText(rs.getString("Ans3"));
                 jTextField5.setText(rs.getString("Ans4"));
                 ++sqn;
+                
                 }
             }
             catch (SQLException e) {
@@ -59,6 +67,7 @@ public class Maths extends javax.swing.JFrame {
             }
 
     }
+    //sql connection
     private Connection connect(){
                 Connection conn = null;
         try {
@@ -198,9 +207,10 @@ public class Maths extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // rest of questions
         jTextField7.setVisible(false);
         String Cans = (String) jComboBox1.getSelectedItem();
+        //check to see if the user input is equal to the answer gained from the database
         if (Cans.equals(ans)){   
             String sql = "SELECT Qno, Question, ans, ans1, ans2, ans3, ans4, Help FROM Maths WHERE Qno="+ sqn;
             try (Connection conn = this.connect();
@@ -208,6 +218,7 @@ public class Maths extends javax.swing.JFrame {
             ResultSet rs    = stmt.executeQuery(sql)){
             int qn = rs.getInt("Qno");
             String qns = Integer.toString(qn);
+            // increase question number and score
             ++sqn;
             ++score;
             while (rs.next()) {
@@ -223,6 +234,7 @@ public class Maths extends javax.swing.JFrame {
                 }
             }
             catch (SQLException e) {
+                //if there are no more questions, the score is increased and the user is taken to the results page
             ++score;
             appData.setms(score);
             Main.Results qu= new Main.Results(appData);
@@ -233,6 +245,7 @@ public class Maths extends javax.swing.JFrame {
             }
         }
         else {
+            //takes the user to the quiz page if a wrong answer is given
             appData.setms(score);
             Quizzes.Wans qu= new Quizzes.Wans(appData);
                 qu.setVisible(true);
@@ -244,7 +257,7 @@ public class Maths extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        //help button
         jTextField7.setVisible(true);
         jTextField7.setText(help);
     }//GEN-LAST:event_jButton2ActionPerformed

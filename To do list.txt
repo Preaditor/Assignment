@@ -1,84 +1,12 @@
-Add comments to code
-Adjust text size and make bold - calculator
 
 
 Finish questions / answers
 	
 	
-setup help
- 	
-	g1 A Setup correct answer & incorrect
- 	
-	g2 A Setup correct answer & incorrect
- 	
-	g3 B Setup correct answer & incorrect
- 	
-	g4 B Setup correct answer & incorrect
- 	
-	g5 B Setup correct answer & incorrect
-
-
-
- 
-
-	o1 Setup correct answer & incorrect
- 
-	o2 Setup correct answer & incorrect 
- 
-	o3 Setup correct answer & incorrect 
- 
-	o4 Setup correct answer & incorrect 
- 
-	o5 Setup correct answer & incorrect 
- 
- 
-
-	m1 Setup correct answer & incorrect 
- 
-	m2 Setup correct answer & incorrect 
- 
-	m3 Setup correct answer & incorrect 
- 
-	m4 Setup correct answer & incorrect 
- 
-	m5 Setup correct answer & incorrect 
-
-
-	q1 Setup correct answer & incorrect	
-	q2 Setup correct answer & incorrect	
-	q3 Setup correct answer & incorrect
-	q4 Setup correct answer & incorrect	
-	q5 Setup correct answer & incorrect	
+	
+	
+Input questions into db
 
 
 setup calculator io
-setup recording of results in db
 
-
-Length Conversions:
- feet
- mile
- km
- inches
- cm
- metre
-
-Temp Conversions:
- celcius
- fahrenheit
- kelvin
-
-Speed Conversions:
- kph
- mph
- mps
- cps
- fps
- knots
-
-Weight Conversions:
- Gram
- Kilogram
- ounce
- pound
- Stone

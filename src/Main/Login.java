@@ -29,15 +29,18 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      * @param appData
      */
+    // enabling the connection to AppData.java
     private final AppData appData;
 
     public Login(AppData appData) {
+        //general setup of the frame
         this.appData = appData;
         initComponents();
         getContentPane().setBackground(new Color(66,122,244));
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
+    // database connection start
     private Connection connect(){
                 Connection conn = null;
         try {
@@ -189,7 +192,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // gets username and password from text boxes, setup sql statement
         String sql = "SELECT Name, user, pass, Ms, Os, Gs, Iss FROM Logins";
         String user = jTextField1.getText();
         String pass = jPasswordField1.getText();
@@ -197,7 +200,8 @@ public class Login extends javax.swing.JFrame {
              Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
             
-            // loop through the result set
+            // loop through the result set until a result is found that matches the user input
+            
             while (rs.next()) {
                 if (user.equals(rs.getString("user")) && pass.equals(rs.getString("pass")) ){
                     appData.setusername(rs.getString("Name"));
@@ -223,7 +227,7 @@ public class Login extends javax.swing.JFrame {
 
         
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        // button to open the signup form
         Signup su= new Signup(appData);
             su.setVisible(true);
             this.setVisible(false);
@@ -232,7 +236,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // help form opening
         Help hp= new Help(appData);
             hp.setVisible(true);
             this.setVisible(true);
@@ -241,7 +245,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
-        // TODO add your handling code here:
+        // Testing using keyboard to perform login function
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             String sql = "SELECT Name, user, pass FROM Logins";
         String user = jTextField1.getText();
