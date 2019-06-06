@@ -41,7 +41,7 @@ public class ICT extends javax.swing.JFrame {
         //first question setup 
         ++sqn;
         //sql statement to get the first question
-        String sql = "SELECT Qno, Question, ans, ans1, ans2, ans3, ans4 FROM ICT WHERE Qno="+ sqn;
+        String sql = "SELECT Qno, Question, ans, ans1, ans2, ans3, ans4, Help FROM ICT WHERE Qno="+ sqn;
             try (Connection conn = this.connect();
             Statement stmt  = conn.createStatement();
             ResultSet rs    = stmt.executeQuery(sql)){
@@ -209,7 +209,7 @@ public class ICT extends javax.swing.JFrame {
         String Cans = (String) jComboBox1.getSelectedItem();
         //check to see if the user input is equal to the answer gained from the database
         if (Cans.equals(ans)){
-            String sql = "SELECT Qno, Question, ans, ans1, ans2, ans3, ans4 FROM Maths WHERE Qno="+ sqn;
+            String sql = "SELECT Qno, Question, ans, ans1, ans2, ans3, ans4, Help FROM ICT WHERE Qno="+ sqn;
             try (Connection conn = this.connect();
                 Statement stmt  = conn.createStatement();
                 ResultSet rs    = stmt.executeQuery(sql)){
@@ -221,6 +221,7 @@ public class ICT extends javax.swing.JFrame {
                 //retrieve next question
                 while (rs.next()) {
                     ans = rs.getString("ans");
+                    help = rs.getString("Help");
                     jTextField6.setText(qns);
                     jTextField1.setText(rs.getString("Question"));
                     jTextField2.setText(rs.getString("Ans1"));
